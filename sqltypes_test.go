@@ -60,5 +60,22 @@ func TestNullBitBool(t *testing.T) {
 			t.Errorf("Should have thrown an error %s", err)
 		}
 	})
+	t.Run("TestingValue", func(t *testing.T) {
+		var itmUnderTest NullBitBool
+		var bitBool []uint8
+		bitBool = append(bitBool, 1)
+		err := itmUnderTest.Scan(bitBool)
+		if err != nil {
+			t.Errorf("Threw an error when it shouldn't have %s", err)
+		}
+		value, err := itmUnderTest.Value()
+		outBool, ok := value.(bool)
+		if !ok {
+			t.Error("returned the wrong type")
+		}
+		if !outBool {
+			t.Error("Should have been a true but it was a false")
+		}
+	})
 
 }
