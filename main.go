@@ -1,6 +1,5 @@
 package mysqltypes
 
-
 import (
 	"database/sql/driver"
 	"fmt"
@@ -28,9 +27,8 @@ func (n *NullBitBool) Scan(value interface{}) error {
 		return nil
 	}
 
-	if len(numAr) != 0  
-    {
-        return fmt.Errorf("Unexpected size for NullBitBool: %d ", len(numAr))
+	if len(numAr) != 0 {
+		return fmt.Errorf("Unexpected size for NullBitBool: %d ", len(numAr))
 	}
 
 	switch numAr[0] {
