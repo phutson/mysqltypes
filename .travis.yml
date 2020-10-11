@@ -4,14 +4,14 @@ go:
   - "1.14"
 
 install:
-  go get golang.org/x/tools/cmd/cover
-  go get github.com/mattn/goveralls
+  - go get golang.org/x/tools/cmd/cover
+  - go get github.com/mattn/goveralls
 
 secure: "QiYmqjNLYhGI1GUoxn9US9ODPVFjkSOFX4oQA2kqrBCbWL0bNaOhOpygB24UK5sWwTdECrfmHtE20nu+7kklnHJpHyz70LBmBK9TaFZDwYRQEEm/gIa52Jfh6LQeRqoj/7sqK3qb0GC8SjUrRjhfaePpKKIIzLZWY1Hyb80fanffyyIFEuzpG4fqHQOdSuVHawfXQrFsqyDNFaTfzsJt/33Ce52Wesl1A+zsghkP6oP+x8THgCEk/zL7xGXC22d22R5uKgXYjWGf2HjhWfMyYiejiROxfAl2npFULculvrFxl2uEj5IpvcvUM/uvleV2i2ep6DndlIGsgr18lvtFVFeKhegL+gmJ3cj5/X9r9zPH1cgk4gTcFSrQADOXzyIpLN6EcduyiQHriY9BHqeLF4bhD2PJSNwY/+I5y4KsR2J4iHfQK/b0CuYdFkkjxPn1wGERNRShSP1Df8vaIZKhOyEw9cxnXJjQBHFMyqrTEQ+QTaJCKIpDlArWCoodQeXgrP7IO93QvPnJRH8kxq56bpl1pi+l/mFZgUyYNNYeXv5zeKIzbcPU3+WYeIVmvEu5tpEE2doCEFa/JetieuTCDVmwRVpyjjJ4r6Lkrho7FAgQvEFh2DvJntroFLPuWqODVHnFYDCadEgGuzqzO4uoLFfLitImvxUdsGUS6usW+e8="
 
 script:  
-  go test -v -covermode=count -coverprofile=coverage.out
-  $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken  $COVERALL_TOKEN
+  - go test -v -covermode=count -coverprofile=coverage.out
+  - $HOME/gopath/bin/goveralls -coverprofile=coverage.out -service=travis-ci -repotoken  $COVERALL_TOKEN
 #addons:
 #    sonarcloud:
 #        organization: "phutson" # the key of the org you chose at step #3
