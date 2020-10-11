@@ -27,11 +27,6 @@ func (n *NullBitBool) Scan(value interface{}) error {
 		return fmt.Errorf("Unexpected type for NullBitBool: %T", value)
 	}
 
-	if numAr == nil {
-		n.Bool, n.Valid = false, false
-		return nil
-	}
-
 	//if this occurs you should use the NullBitBoolArray type
 	if len(numAr) != 1 {
 		return fmt.Errorf("Unexpected size for NullBitBool: %d ", len(numAr))
