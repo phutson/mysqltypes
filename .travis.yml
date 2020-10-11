@@ -2,3 +2,12 @@ language: go
 
 go:
   - "1.14"
+
+  addons:
+    sonarcloud:
+      organization: "phutson" # the key of the org you chose at step #3
+      token:
+        secure: "KP8ws+sgbomxqqvJCn+mmMyzDhxA7Jo6yIRvXhUz7a85xNtM3oW0AnT9HXjXk68VKAX8euBFJZsiwl38Z8DZE7vln95lA4eX88ZxTx3pYNJaXOwHNKloLlxGu+3aro3/mJsuV4P0dCT422FTIULfBXUsqvDhIGAAh1ZEdYZQStTmGl0tODjDHmEQ8W+qY8Ypx6rRPbWu1V3P6jqGurX0DNXLxr6V9zr0wgt5psE/tveS7d/85fErGAjCSTIl9cEUVgxBtTvBvwjhrThkCHyCsR0F+uBXsjY40wjc1UkoZZ1iidOWJWfJVUE0IpoeBRoMwFmX0xq8AVX+scT+c+TgbqzFwOYg+bK4yOGR4QzX8QETC9SjXdFDkt+mt4VL9U9sGJar8vMLqZVx30IYSNlQl2DespROaB9di2c+vsyZCFyLju0/Nf8CHGWrcjsjzxs2w5uCGaEvEwFzMVaMnMDYOKBkPnJhKfq2qNoVaFIeAml/p/2id5B52dy6ZaMxoyC63Ky2s20ZLcSuiG4c5krUPG9LsJvtB4lObT7np1JBEfRPYWUvqspsI/eL9nGOZIa5jFUiAN648dubPmoA1Z+PsaNpKhOgZ0c5M6lpDqb8f1HevQ673BBPN+kQJmploYEF2AhezYtj+NfTZ5krkXpu0ift9tux6Au412yfg9LgnKk="
+  script:
+    # other script steps might be done before running the actual analysis
+    - sonar-scanner
