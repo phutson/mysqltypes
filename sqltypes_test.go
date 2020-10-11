@@ -88,5 +88,16 @@ func TestNullBitBool(t *testing.T) {
 			t.Error("Should have been a true but it was a false")
 		}
 	})
+	t.Run("TestingValueInvalid", func(t *testing.T) {
+		var itmUnderTest NullBitBool
+		err := itmUnderTest.Scan(nil)
+		if err != nil {
+			t.Errorf("Threw an error when it shouldn't have %s", err)
+		}
+		value, err := itmUnderTest.Value()
+		if value != nil && err != nil {
+			t.Error("Invalid value should have returned a nil nil")
+		}
+	})
 
 }
