@@ -38,6 +38,17 @@ func TestNullBitBool(t *testing.T) {
 			t.Error("Should have been a true but it was a false")
 		}
 	})
+	t.Run("TestingSliceLength", func(t *testing.T) {
+		var itmUnderTest NullBitBool
+		var bitBool []uint8
+		bitBool = append(bitBool, 1)
+		bitBool = append(bitBool, 0)
+		bitBool = append(bitBool, 1)
+		err := itmUnderTest.Scan(bitBool)
+		if err == nil {
+			t.Errorf("It should have thrown an error ")
+		}
+	})
 	t.Run("TestingValidTypeAndValueOfFalse", func(t *testing.T) {
 		var itmUnderTest NullBitBool
 		var bitBool []uint8
